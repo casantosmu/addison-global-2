@@ -1,0 +1,15 @@
+.container {
+  max-width: var(--md-breakpoint);
+  margin: 0 auto;
+  padding-left: var(--400-spacing);
+  padding-right: var(--400-spacing);
+}
+
+.container--xl {
+  max-width: var(--xl-breakpoint);
+}
+
+.h3 {
+  font-size: var(--700-font-size);
+  font-weight: 400;
+}
