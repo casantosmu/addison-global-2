@@ -8,3 +8,8 @@
 .container--xl {
   max-width: var(--xl-breakpoint);
 }
+
+.h3 {
+  font-size: var(--700-font-size);
+  font-weight: 400;
+}
