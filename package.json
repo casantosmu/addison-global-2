@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "format:check": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "format:fix": "prettier --write .",
+    "lint:check": "eslint --ext .js .",
+    "lint:fix": "eslint --fix --ext .js ."
   },
   "devDependencies": {
     "eslint": "^8.34.0",
