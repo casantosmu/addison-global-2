@@ -1,0 +1,28 @@
+name: code quality
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  code-quality:
+    name: code quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out code
+        uses: actions/checkout@v3
+
+      - name: set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: install dependencies
+        run: npm ci
+
+      - name: lint check
+        run: npm run lint:check
+
+      - name: format check
+        run: npm run format:check
