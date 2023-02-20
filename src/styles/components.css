@@ -77,8 +77,43 @@
 .card__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--300-spacing);
-  padding-top: var(--400-spacing);
+  gap: var(--400-spacing);
+  padding-top: var(--500-spacing);
+}
+
+.button {
+  background-color: var(--default-main-color);
+  border-radius: var(--border-radius);
+  background-color: var(--default-main-color);
+  color: var(--primary-text-color);
+  padding: var(--300-spacing) var(--400-spacing);
+  text-decoration: none;
+  transition: background-color var(--transition-base);
+}
+
+.button--outlined {
+  background-color: transparent;
+  border: 1px var(--default-main-color) solid;
+}
+
+.button--outlined:hover {
+  background-color: var(--default-light-color);
+}
+
+.button--outlined:active {
+  background-color: var(--default-dark-color);
+}
+
+.button--info {
+  background-color: var(--info-main-color);
+}
+
+.button--info:hover {
+  background-color: var(--info-light-color);
+}
+
+.button--info:active {
+  background-color: var(--info-dark-color);
 }
 
 .visually-hidden {

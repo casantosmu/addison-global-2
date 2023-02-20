@@ -6,6 +6,12 @@
   --light-color: #f5f4f0;
   --primary-main-color: #c62828;
   --primary-text-color: var(--light-color);
+  --default-light-color: #949494;
+  --default-main-color: #666666;
+  --default-dark-color: #3c3c3c;
+  --info-light-color: #6a9ada;
+  --info-main-color: #346ca8;
+  --info-dark-color: #004279;
   --border-color: #343a40;
 
   --md-breakpoint: 768px;
@@ -21,4 +27,6 @@
   --700-font-size: 2.125rem;
 
   --border-radius: 0.25rem;
+
+  --transition-base: 0.3s ease;
 }
