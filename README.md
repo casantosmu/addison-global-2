@@ -25,7 +25,7 @@ For naming CSS classes, I used the BEM methodology, and for structuring the cont
 
 ## How to Run the Project
 
-Clone the repository: `git clone https://github.com/casantosmu/addison-global-2`
+Clone the repository: `git clone https://github.com/casantosmu/addison-global-2.git`
 
 Install dependencies: `npm install`
 
