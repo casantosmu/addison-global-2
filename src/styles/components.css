@@ -23,7 +23,12 @@
 
 .h3 {
   font-size: var(--700-font-size);
-  font-weight: 400;
+  font-weight: 700;
+}
+
+.h6 {
+  font-size: var(--500-font-size);
+  font-weight: 700;
 }
 
 .tab__tabs {
@@ -36,14 +41,9 @@
 }
 
 .tab_tabs-item {
-  /* Reset default button styles */
   background-color: transparent;
-  background-repeat: no-repeat;
   border: none;
   cursor: pointer;
-  overflow: hidden;
-  outline: none;
-
   font-weight: 600;
 }
 
@@ -60,6 +60,27 @@
   padding-top: var(--600-spacing);
 }
 
+.card {
+  border: var(--border-color) 1px solid;
+  border-radius: var(--border-radius);
+}
+
+.card__media {
+  border-start-end-radius: var(--border-radius);
+  border-start-start-radius: var(--border-radius);
+}
+
+.card__content {
+  padding: var(--500-spacing);
+}
+
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--300-spacing);
+  padding-top: var(--400-spacing);
+}
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -68,4 +89,12 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.pb--300 {
+  padding-bottom: var(--300-spacing);
+}
+
+.pt--600 {
+  padding-top: var(--600-spacing);
 }
