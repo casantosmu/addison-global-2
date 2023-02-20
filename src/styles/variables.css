@@ -3,9 +3,11 @@
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --dark-color: #1a1922;
   --light-color: #f5f4f0;
+  --primary-main-color: #c62828;
   --primary-text-color: var(--light-color);
   --md-breakpoint: 768px;
   --xl-breakpoint: 1200px;
+  --300-spacing: 0.5rem;
   --400-spacing: 1rem;
   --400-font-size: 1rem;
   --700-font-size: 2.125rem;

@@ -13,3 +13,33 @@
   font-size: var(--700-font-size);
   font-weight: 400;
 }
+
+.tab__tabs {
+  display: flex;
+  position: relative;
+  gap: var(--300-spacing);
+  flex-wrap: wrap;
+  padding-top: var(--300-spacing);
+  padding-bottom: var(--300-spacing);
+}
+
+.tab_tabs-item {
+  /* Reset default button styles */
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+
+  font-weight: 600;
+}
+
+.tab__tabs-bar {
+  position: absolute;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  width: 125px;
+  background-color: var(--primary-main-color);
+}
