@@ -8,7 +8,7 @@ This is a simple project that uses the minimum necessary packages for developmen
 
 I used the Vite tool for development and code compilation. Vite is a fast and flexible build tool that handles code compilation and optimization. Its functions include hot module replacement, code minification, and generation of code that is compatible with older browsers. Vite is a good choice for simple projects that do not require a large framework.
 
-For naming CSS classes, I used the BEM methodology, and for structuring the content, I used semantic HTML. I used ESLint and Prettier to maintain clean and consistent code. I also used Husky to set up pre-commit hooks and Lighthouse to measure website performance and accessibility.
+For naming CSS classes, I used the BEM methodology, and for structuring the content, I used semantic HTML. I used ESLint and Prettier to maintain clean and consistent code. I also used Lighthouse to measure website performance and accessibility.
 
 ## Technologies Used
 
@@ -20,7 +20,6 @@ For naming CSS classes, I used the BEM methodology, and for structuring the cont
 - Semantic HTML
 - ESLint
 - Prettier
-- Husky
 - Lighthouse
 
 ## How to Run the Project
