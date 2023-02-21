@@ -11,9 +11,12 @@ import {
   getNewCustomersPromotions,
   getAllPromotions,
 } from "./data";
+import { removeLoadingBar, renderError, renderLoadingBar } from "./view";
 
 (async () => {
   try {
+    renderLoadingBar();
+
     await fetchAllPromotions();
     const allPromotions = getAllPromotions();
     const newCustomersPromotions = getNewCustomersPromotions();
@@ -24,5 +27,9 @@ import {
     if (process.env.NODE_ENV !== "production") {
       console.error(error);
     }
+
+    renderError();
+  } finally {
+    removeLoadingBar();
   }
 })();
