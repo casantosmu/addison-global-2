@@ -1,0 +1,91 @@
+.h3 {
+  font-size: var(--font-size-700);
+  font-weight: 700;
+}
+
+.h6 {
+  font-size: var(--font-size-500);
+  font-weight: 700;
+}
+
+.tab__tabs {
+  display: flex;
+  position: relative;
+  gap: var(--space-300);
+  flex-wrap: wrap;
+  padding-top: var(--space-300);
+  padding-bottom: var(--space-300);
+  margin-bottom: var(--space-600);
+}
+
+.tab_tabs-item {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tab__tabs-bar {
+  position: absolute;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  width: 125px;
+  background-color: var(--color-primary-main);
+}
+
+.card {
+  border: var(--color-border) 1px solid;
+  border-radius: var(--border-radius-base);
+}
+
+.card__media {
+  border-start-end-radius: var(--border-radius-base);
+  border-start-start-radius: var(--border-radius-base);
+}
+
+.card__content {
+  padding: var(--space-500);
+}
+
+.card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-400);
+  padding-top: var(--space-500);
+}
+
+.button {
+  background-color: var(--color-default-main);
+  border-radius: var(--border-radius-base);
+  background-color: var(--color-default-main);
+  color: var(--color-text-primary);
+  padding: var(--space-300) var(--space-400);
+  text-decoration: none;
+  transition: background-color var(--transition-base);
+}
+
+.button--outlined {
+  background-color: transparent;
+  border: 1px var(--color-default-main) solid;
+}
+
+.button--outlined:hover {
+  background-color: var(--color-default-light);
+}
+
+.button--outlined:active {
+  background-color: var(--color-default-dark);
+}
+
+.button--info {
+  background-color: var(--color-info-main);
+}
+
+.button--info:hover {
+  background-color: var(--color-info-light);
+}
+
+.button--info:active {
+  background-color: var(--color-info-dark);
+}
