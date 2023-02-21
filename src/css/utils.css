@@ -1,0 +1,17 @@
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.pb--300 {
+  padding-bottom: var(--300-spacing);
+}
+
+.pt--600 {
+  padding-top: var(--600-spacing);
+}
