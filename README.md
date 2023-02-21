@@ -30,3 +30,7 @@ Clone the repository: `git clone https://github.com/casantosmu/addison-global-2.
 Install dependencies: `npm install`
 
 Start the application: `npm run dev`
+
+## Credits
+
+[Sport](https://icons8.com/icon/KIblyTmzrQ32/sport) icon by [Icons8](https://icons8.com)
