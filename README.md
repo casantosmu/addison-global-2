@@ -1,6 +1,6 @@
 # Frontend Challenge: Addisonglobal Web Technical Test
 
-This project is part of a series of frontend challenges and was developed following the specifications of the challenge, which can be found at [this link](https://github.com/addisonglobal/web-technical-test).
+This project is part of a [series of frontend challenges](https://github.com/felipefialho/frontend-challenges) and was developed following the specifications of the challenge, which can be found at [this link](https://github.com/addisonglobal/web-technical-test).
 
 ## Description
 
