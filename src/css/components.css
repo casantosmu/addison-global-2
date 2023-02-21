@@ -1,21 +1,21 @@
 .h3 {
-  font-size: var(--700-font-size);
+  font-size: var(--font-size-700);
   font-weight: 700;
 }
 
 .h6 {
-  font-size: var(--500-font-size);
+  font-size: var(--font-size-500);
   font-weight: 700;
 }
 
 .tab__tabs {
   display: flex;
   position: relative;
-  gap: var(--300-spacing);
+  gap: var(--space-300);
   flex-wrap: wrap;
-  padding-top: var(--300-spacing);
-  padding-bottom: var(--300-spacing);
-  margin-bottom: var(--600-spacing);
+  padding-top: var(--space-300);
+  padding-bottom: var(--space-300);
+  margin-bottom: var(--space-600);
 }
 
 .tab_tabs-item {
@@ -31,61 +31,61 @@
   bottom: 0;
   left: 0;
   width: 125px;
-  background-color: var(--primary-main-color);
+  background-color: var(--color-primary-main);
 }
 
 .card {
-  border: var(--border-color) 1px solid;
-  border-radius: var(--border-radius);
+  border: var(--color-border) 1px solid;
+  border-radius: var(--border-radius-base);
 }
 
 .card__media {
-  border-start-end-radius: var(--border-radius);
-  border-start-start-radius: var(--border-radius);
+  border-start-end-radius: var(--border-radius-base);
+  border-start-start-radius: var(--border-radius-base);
 }
 
 .card__content {
-  padding: var(--500-spacing);
+  padding: var(--space-500);
 }
 
 .card__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--400-spacing);
-  padding-top: var(--500-spacing);
+  gap: var(--space-400);
+  padding-top: var(--space-500);
 }
 
 .button {
-  background-color: var(--default-main-color);
-  border-radius: var(--border-radius);
-  background-color: var(--default-main-color);
-  color: var(--primary-text-color);
-  padding: var(--300-spacing) var(--400-spacing);
+  background-color: var(--color-default-main);
+  border-radius: var(--border-radius-base);
+  background-color: var(--color-default-main);
+  color: var(--color-text-primary);
+  padding: var(--space-300) var(--space-400);
   text-decoration: none;
   transition: background-color var(--transition-base);
 }
 
 .button--outlined {
   background-color: transparent;
-  border: 1px var(--default-main-color) solid;
+  border: 1px var(--color-default-main) solid;
 }
 
 .button--outlined:hover {
-  background-color: var(--default-light-color);
+  background-color: var(--color-default-light);
 }
 
 .button--outlined:active {
-  background-color: var(--default-dark-color);
+  background-color: var(--color-default-dark);
 }
 
 .button--info {
-  background-color: var(--info-main-color);
+  background-color: var(--color-info-main);
 }
 
 .button--info:hover {
-  background-color: var(--info-light-color);
+  background-color: var(--color-info-light);
 }
 
 .button--info:active {
-  background-color: var(--info-dark-color);
+  background-color: var(--color-info-dark);
 }

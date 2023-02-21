@@ -9,9 +9,9 @@
 }
 
 .pb--300 {
-  padding-bottom: var(--300-spacing);
+  padding-bottom: var(--space-300);
 }
 
 .pt--600 {
-  padding-top: var(--600-spacing);
+  padding-top: var(--space-600);
 }

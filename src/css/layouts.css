@@ -1,22 +1,22 @@
 .container {
-  max-width: var(--md-breakpoint);
+  max-width: var(--breakpoint-md);
   margin: 0 auto;
-  padding-left: var(--400-spacing);
-  padding-right: var(--400-spacing);
+  padding-left: var(--space-400);
+  padding-right: var(--space-400);
 }
 
 .container--xl {
-  max-width: var(--xl-breakpoint);
+  max-width: var(--breakpoint-xl);
 }
 
 .grid-auto {
   display: grid;
-  grid-column-gap: var(--400-spacing);
-  grid-row-gap: var(--400-spacing);
+  grid-column-gap: var(--space-400);
+  grid-row-gap: var(--space-400);
   grid-template-columns: repeat(auto-fit, minmax(288px, 1fr));
 }
 
 .grid-auto--500 {
-  grid-column-gap: var(--500-spacing);
-  grid-row-gap: var(--500-spacing);
+  grid-column-gap: var(--space-500);
+  grid-row-gap: var(--space-500);
 }
