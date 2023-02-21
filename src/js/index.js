@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import "../css/reset.css";
 import "../css/variables.css";
 import "../css/base.css";
@@ -11,7 +10,12 @@ import {
   getNewCustomersPromotions,
   getAllPromotions,
 } from "./data";
-import { removeLoadingBar, renderError, renderLoadingBar } from "./view";
+import {
+  renderError,
+  renderPromotions,
+  renderLoadingBar,
+  removeLoadingBar,
+} from "./view";
 
 (async () => {
   try {
@@ -21,10 +25,10 @@ import { removeLoadingBar, renderError, renderLoadingBar } from "./view";
     const allPromotions = getAllPromotions();
     const newCustomersPromotions = getNewCustomersPromotions();
 
-    console.log("allPromotions", allPromotions);
-    console.log("newCustomersPromotions", newCustomersPromotions);
+    renderPromotions(allPromotions, newCustomersPromotions);
   } catch (error) {
     if (process.env.NODE_ENV !== "production") {
+      // eslint-disable-next-line no-console
       console.error(error);
     }
 
