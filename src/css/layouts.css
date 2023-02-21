@@ -20,3 +20,10 @@
   grid-column-gap: var(--space-500);
   grid-row-gap: var(--space-500);
 }
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
