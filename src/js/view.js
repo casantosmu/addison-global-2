@@ -1,62 +1,103 @@
 const rootElement = document.querySelector("#root");
 
-const renderTabElement = (tabs, parentElement, labelledbyId) => {
-  const tabElement = document.createElement("div");
-  tabElement.classList.add("tab");
+const createElement = (
+  tagName,
+  { classes, data = {}, ...attributes } = {},
+  appendTo = null
+) => {
+  const element = document.createElement(tagName);
 
-  const tabsElement = document.createElement("div");
-  tabsElement.classList.add("tab__tabs");
-  tabsElement.setAttribute("role", "tablist");
-  tabsElement.setAttribute("aria-labelledby", labelledbyId);
+  if (typeof classes === "string") {
+    element.classList.add(classes);
+  } else if (Array.isArray(classes)) {
+    element.classList.add(...classes.filter((className) => className));
+  }
 
-  tabElement.appendChild(tabsElement);
-
-  tabs.forEach((tab, index) => {
-    const tabItem = document.createElement("button");
-    tabItem.classList.add("tab_tabs-item");
-    tabItem.type = "button";
-    tabItem.setAttribute("role", "tab");
-    tabItem.setAttribute("aria-selected", index ? "false" : "true");
-    tabItem.setAttribute("aria-controls", `${tab.id}-tab-panel`);
-    tabItem.id = `${tab.id}-tab-item`;
-    tabItem.textContent = tab.name;
-
-    tabsElement.appendChild(tabItem);
+  Object.entries(data).forEach(([name, value]) => {
+    element.dataset[name] = value;
   });
 
-  const tabsBar = document.createElement("span");
-  tabsBar.classList.add("tab__tabs-bar");
+  Object.entries(attributes).forEach(([name, value]) => {
+    element.setAttribute(name, value);
+  });
 
-  tabsElement.appendChild(tabsBar);
+  if (appendTo) {
+    appendTo.appendChild(element);
+  }
+
+  return element;
+};
+
+const renderTabs = (tabs, labelledbyId, parent) => {
+  const containerElement = createElement("div", { classes: "tab" }, parent);
+
+  const tabsElement = createElement(
+    "div",
+    {
+      classes: "tab__tabs",
+      role: "tablist",
+      "aria-labelledby": labelledbyId,
+    },
+    containerElement
+  );
+
+  createElement("span", { classes: "tab__tabs-bar" }, tabsElement);
 
   tabs.forEach((tab, index) => {
-    const tabPanel = document.createElement("div");
-    tabPanel.setAttribute("role", "tabpanel");
-    tabPanel.id = `${tab.id}-tab-panel`;
-    tabPanel.setAttribute("aria-labelledby", `${tab.id}-tab-item`);
-    tabPanel.classList.add(
-      "grid-auto",
-      "grid-auto--500",
-      "tab__panel",
-      index ? "visually-hidden" : "js-tab-panel-selected"
+    const isFirsTab = !index;
+
+    const tabsItem = createElement(
+      "button",
+      {
+        classes: "tab_tabs-item",
+        type: "button",
+        role: "tab",
+        "aria-selected": isFirsTab ? "true" : "false",
+        "aria-controls": `${tab.id}-tab-panel`,
+        id: `${tab.id}-tab-item`,
+      },
+      tabsElement
+    );
+    tabsItem.textContent = tab.name;
+  });
+
+  tabs.forEach((tab, index) => {
+    const isFirsTab = !index;
+
+    const tabPanel = createElement(
+      "div",
+      {
+        role: "tabpanel",
+        "aria-labelledby": `${tab.id}-tab-item`,
+        id: `${tab.id}-tab-panel`,
+        classes: [
+          "grid-auto",
+          "grid-auto--500",
+          "tab__panel",
+          !isFirsTab && "visually-hidden",
+        ],
+        data: { tabPanelSelected: isFirsTab },
+      },
+      containerElement
     );
 
-    tabElement.appendChild(tabPanel);
+    tab.panelChildren.forEach((panelChild) => {
+      tabPanel.appendChild(panelChild);
 
-    tab.panelChildren.forEach((panelChildren) => {
-      tabPanel.appendChild(panelChildren);
+      if (!isFirsTab) {
+        panelChild.querySelectorAll("img").forEach((childImage) => {
+          childImage.setAttribute("loading", "lazy");
+        });
+      }
     });
   });
-
-  parentElement.appendChild(tabElement);
 };
 
 const createPromotionsCards = (promotions) => {
   const maxPromotionsOnScreen = 6;
 
   return promotions.map((promotion, index) => {
-    const cardElement = document.createElement("article");
-    cardElement.classList.add("card");
+    const cardElement = createElement("article", { classes: "card" });
     cardElement.innerHTML = `
       <img
         src="${promotion.heroImageUrl}"
@@ -86,22 +127,18 @@ const createPromotionsCards = (promotions) => {
 };
 
 export const renderPromotions = (allPromotions, newCustomersPromotions) => {
-  const containerElement = document.createElement("main");
-  containerElement.classList.add(
-    "container",
-    "container--xl",
-    "pt--600",
-    "pb--700"
+  const containerElement = createElement(
+    "main",
+    { classes: ["container", "container--xl", "pt--600", "pb--700"] },
+    rootElement
   );
 
-  rootElement.appendChild(containerElement);
-
-  const headingElement = document.createElement("h1");
-  headingElement.classList.add("h3");
-  headingElement.id = "promotions-title";
+  const headingElement = createElement(
+    "h1",
+    { classes: "h3", id: "promotions-title" },
+    containerElement
+  );
   headingElement.textContent = "Promotions";
-
-  containerElement.appendChild(headingElement);
 
   const tabs = [
     {
@@ -115,32 +152,34 @@ export const renderPromotions = (allPromotions, newCustomersPromotions) => {
       panelChildren: createPromotionsCards(newCustomersPromotions),
     },
   ];
-  renderTabElement(tabs, containerElement, headingElement.id);
+  renderTabs(tabs, headingElement.id, containerElement);
 };
 
 export const renderError = () => {
-  const containerElement = document.createElement("div");
-  containerElement.classList.add("centered", "pt--600");
+  const containerElement = createElement(
+    "div",
+    { classes: ["centered", "pt--600"] },
+    rootElement
+  );
   containerElement.innerHTML = `
     <h1 class="h6">Error</h1>
     <p>There was an error, please try again later.</p>
   `;
-
-  rootElement.appendChild(containerElement);
 };
 
-const loadingBarSelector = "js-loading-bar";
-
 export const renderLoadingBar = () => {
-  const containerElement = document.createElement("div");
-  containerElement.classList.add("centered", "pt--600", loadingBarSelector);
-  containerElement.innerHTML = "<p>Loading...</p>";
-
-  rootElement.appendChild(containerElement);
+  const containerElement = createElement(
+    "div",
+    { classes: ["centered", "pt--600", "loading-bar"] },
+    rootElement
+  );
+  containerElement.innerHTML = `
+    <p>Loading...</p>
+  `;
 };
 
 export const removeLoadingBar = () => {
-  rootElement
-    .querySelectorAll(`.${loadingBarSelector}`)
-    .forEach((loadingBar) => loadingBar.remove());
+  rootElement.querySelectorAll(".loading-bar").forEach((loadingBar) => {
+    loadingBar.remove();
+  });
 };
