@@ -32,6 +32,7 @@
   left: 0;
   width: 125px;
   background-color: var(--color-primary-main);
+  transition: all var(--transition-base);
 }
 
 .card {

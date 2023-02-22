@@ -41,6 +41,17 @@ const renderTabs = (tabs, labelledbyId, parent) => {
     containerElement
   );
 
+  const tabsBar = createElement(
+    "span",
+    { classes: "tab__tabs-bar" },
+    tabsElement
+  );
+
+  const tabBarOnChange = (selectedTabItem) => {
+    tabsBar.style.width = `${selectedTabItem.offsetWidth}px`;
+    tabsBar.style.left = `${selectedTabItem.offsetLeft}px`;
+  };
+
   const handleOnClickTabs = (event) => {
     const selectedTabItem = event.target.closest(".tab_tabs-item");
 
@@ -49,6 +60,7 @@ const renderTabs = (tabs, labelledbyId, parent) => {
       currentTabItem.ariaSelected = false;
 
       selectedTabItem.ariaSelected = true;
+      tabBarOnChange(selectedTabItem);
 
       const currentTabPanel = containerElement.querySelector(
         '[data-tab-panel-selected="true"]'
@@ -66,8 +78,6 @@ const renderTabs = (tabs, labelledbyId, parent) => {
 
   tabsElement.addEventListener("click", handleOnClickTabs);
 
-  createElement("span", { classes: "tab__tabs-bar" }, tabsElement);
-
   tabs.forEach((tab, index) => {
     const isFirsTab = !index;
 
@@ -84,6 +94,10 @@ const renderTabs = (tabs, labelledbyId, parent) => {
       tabsElement
     );
     tabsItem.textContent = tab.name;
+
+    if (isFirsTab) {
+      tabBarOnChange(tabsItem);
+    }
   });
 
   tabs.forEach((tab, index) => {
