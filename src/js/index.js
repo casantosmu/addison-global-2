@@ -10,12 +10,8 @@ import {
   getNewCustomersPromotions,
   getAllPromotions,
 } from "./data";
-import {
-  renderError,
-  renderPromotions,
-  renderLoadingBar,
-  removeLoadingBar,
-} from "./view";
+import { renderError, renderLoadingBar, removeLoadingBar } from "./view/common";
+import renderPromotions from "./view/renderPromotions";
 
 (async () => {
   try {
